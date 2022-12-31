@@ -1,12 +1,23 @@
 import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
-import styles from "../styles/Home.module.css";
 import Header from "../components/Header";
+import Banner from "../components/Banner";
+import Main from "../components/Main";
+import getConfig from "next/config";
+import { Explore, LiveAnywhere } from "../utils/Intraces";
+import Footer from "../components/Footer";
+const {
+  publicRuntimeConfig: { assetRoute }
+} = getConfig();
 
-const inter = Inter({ subsets: ["latin"] });
-
-export default function Home() {
+export default function Home({
+  exploreData,
+  liveData
+}: {
+  exploreData: Explore[];
+  liveData: LiveAnywhere[];
+}) {
   return (
     <>
       <Head>
@@ -14,6 +25,24 @@ export default function Home() {
         <meta name="description" content="air BnB clone " />
       </Head>
       <Header />
+      <Banner />
+      <Main data={exploreData} liveAnyWhere={liveData} />
+      <Footer />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const exploreRes: Response = await fetch(`https://www.jsonkeeper.com/b/4G1G`);
+  const exploreData = await exploreRes.json();
+
+  const liveRes: Response = await fetch("https://www.jsonkeeper.com/b/VHHT");
+  const liveData = await liveRes.json();
+
+  return {
+    props: {
+      exploreData,
+      liveData
+    }
+  };
 }
