@@ -50,10 +50,13 @@ const Footer: FC = () => {
     <footer className="bg-gray-100 ">
       <div className="grid grid-cols-1 md:grid-cols-4 gap-y-10 px-10 md:px-32 py-6 ">
         {footerContent.map((content) => (
-          <div className="space-y-1 text-xs text-gray-600">
+          <div
+            key={content.heading}
+            className="space-y-1 text-xs text-gray-600"
+          >
             <h5 className="font-bold">{content.heading}</h5>
-            {content.values?.map((value) => (
-              <p>{value.value}</p>
+            {content.values?.map((value, index) => (
+              <p key={`${value}_${index}`}>{value.value}</p>
             ))}
           </div>
         ))}
