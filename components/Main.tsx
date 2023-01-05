@@ -5,7 +5,6 @@ import LargeCard from "./LargeCard";
 import LiveAnywhere from "./LiveAnywhere";
 
 import getConfig from "next/config";
-import Footer from "./Footer";
 const {
   publicRuntimeConfig: { assetRoute }
 } = getConfig();
