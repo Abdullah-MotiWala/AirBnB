@@ -30,7 +30,7 @@ const SearchMain: FunctionComponent<{ searchResults: infoProps[] }> = ({
 
         <div className="hidden md:inline-flex mb-5 space-x-3 text-gray-800 whitespace-nowrap">
           {fitlers.map((filter) => {
-            return <FilterButton filter={filter} />;
+            return <FilterButton filter={filter} key={filter} />;
           })}
         </div>
 
@@ -38,7 +38,7 @@ const SearchMain: FunctionComponent<{ searchResults: infoProps[] }> = ({
           {searchResults.map((data) => {
             const { img, location, title, description, star, total, price } =
               data;
-            return <InfoCard {...data} />;
+            return <InfoCard {...data} key={`${location}_${title}`} />;
           })}
         </div>
       </section>
