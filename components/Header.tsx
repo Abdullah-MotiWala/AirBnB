@@ -96,7 +96,7 @@ const Header: FunctionComponent<{ placeholder: string }> = ({
         </div>
       </div>
 
-      {search && (
+      {searchs && (
         <div className="mx-auto flex flex-col col-span-3 overflow-x-scroll">
           {" "}
           <DateRangePicker
