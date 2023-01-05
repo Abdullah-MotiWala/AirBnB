@@ -24,7 +24,7 @@ export default function Home({
         <title>Airbnb</title>
         <meta name="description" content="air BnB clone " />
       </Head>
-      <Header />
+      <Header placeholder="Enter Your Search" />
       <Banner />
       <Main data={exploreData} liveAnyWhere={liveData} />
       <Footer />

@@ -15,7 +15,7 @@ const Search: NextPage<{ searchResults: any }> = ({ searchResults }) => {
     query: { startDate, endDate, location, members }
   } = useRouter();
 
-  const formattedRange = (startDate: string, endDate: string): string => {
+  const formattedRange = (startDate: any, endDate: any): string => {
     return `${format(new Date(startDate), "dd MMMM yy")} - ${format(
       new Date(endDate),
       "dd MMMM yy"

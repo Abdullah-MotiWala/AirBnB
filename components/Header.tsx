@@ -28,8 +28,8 @@ const Header: FunctionComponent<{ placeholder: string }> = ({
   const router = useRouter();
 
   const ranges: {
-    startDate: Date | string;
-    endDate: Date | string;
+    startDate: Date;
+    endDate: Date;
     key: string;
   } = {
     startDate,
@@ -108,7 +108,6 @@ const Header: FunctionComponent<{ placeholder: string }> = ({
             rangeColors={["#fd696d"]}
             className=""
             scroll={{ enabled: true }}
-            fixHeight={false}
           />
           <div className="flex items-center border-b mb-4">
             <h2 className="text-2xl flex-grow font-semibold">
