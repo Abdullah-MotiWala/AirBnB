@@ -21,7 +21,7 @@ const {
 const Header: FunctionComponent<{ placeholder: string }> = ({
   placeholder = "Start Your Search"
 }) => {
-  const [search, setSearch] = useState<string>("");
+  const [searchs, setSearch] = useState<string>("");
   const [startDate, setStartDate] = useState<Date>(new Date());
   const [endDate, setEndDate] = useState<Date>(new Date());
   const [numOfGuests, setNumOfGuests] = useState<number>(1);
@@ -50,7 +50,7 @@ const Header: FunctionComponent<{ placeholder: string }> = ({
       query: {
         startDate: startDate.toISOString(),
         endDate: endDate.toISOString(),
-        location: search,
+        location: searchs,
         members: numOfGuests
       }
     });
@@ -80,7 +80,7 @@ const Header: FunctionComponent<{ placeholder: string }> = ({
           type={"text"}
           placeholder={placeholder}
           className="bg-transparent pl-5 outline-none flex-grow text-sm text-gray-600 placeholder-gray-400"
-          value={search}
+          value={searchs}
           onChange={(e) => setSearch(e.target.value)}
         />
         <SearchIcon className=" hidden md:inline-flex md:mx-2 h-6  text-white bg-red-400 rounded-full p-1 cursor-pointer " />
